@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "setup": "node-gyp configure",
+    "build": "npm run setup && node-gyp build",
+    "dev": "npm run build && "
   },
   "repository": {
     "type": "git",
