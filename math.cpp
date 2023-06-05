@@ -1,31 +1,45 @@
 #include <node.h>
 
-namespace math {
-
-  using v8::FunctionCallbackInfo;
-  using v8::Isolate;
+namespace math { 
+  using v8::FunctionCallbackInfo; 
+  using v8::Isolate; 
   using v8::Local;
   using v8::Object;
   using v8::Number;
   using v8::Value;
+  using v8::Exception;
+  using v8::String;
 
-  void Method(const FunctionCallbackInfo<Value>&args) {
+  void Sum(const FunctionCallbackInfo<Value>&args) {
     Isolate* isolate = args.GetIsolate();
 
-    int i;
-    double x = 100.432526, y = 200.235264;
+    double sum = 0.0; 
 
-    for (i=0; i<10000;i++){
-      x += y;
+    for (int i = 0; i < args.Length(); i++) {
+      if (!args[i]->IsNumber()) {
+        isolate->ThrowException(Exception::TypeError(String::NewFromUtf8(isolate, "Os parâmetros devem ser números").ToLocalChecked()));
+        return;
+      }
+
+      double value = args[i].As<Number>()->Value();
+      sum += value;
     }
 
-    auto total = Number::New(isolate, x);
-    args.GetReturnValue().Set(total);
-    
+
+    auto result = Number::New(isolate, sum);
+    args.GetReturnValue().Set(result);    
+  }
+
+  void Sub(const FunctionCallbackInfo<Value>&args) {
+    Isolate* isolate = args.GetIsolate();
+
+    double sub = 0.0;
+
+
   }
 
   void Initialize(Local<Object> exports) {
-    NODE_SET_METHOD(exports, "calc", Method);
+    NODE_SET_METHOD(exports, "sum", Sum);
   }
 
   NODE_MODULE(NODE_GYP_MODULE_NAME, Initialize);
