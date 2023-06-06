@@ -1,3 +1,4 @@
+#include <complex>
 #include <node.h>
 
 namespace math { 
@@ -21,8 +22,8 @@ namespace math {
         return;
       }
 
-      double value = args[i].As<Number>()->Value();
-      sum += value;
+      double valueSum = args[i].As<Number>()->Value();
+      sum += valueSum;
     }
 
 
@@ -35,11 +36,20 @@ namespace math {
 
     double sub = 0.0;
 
+    for (int i = args.Length(); i < 0; i--) {
+      if (!args[i]->IsNumber()) {
+        isolate->ThrowException(Exception::TypeError(String::NewFromUtf8(isolate, "Os parametros devem ser numeros").ToLocalChecked()));
+        return;
+      }
 
+      double valueSub = args[i].As<Number>()->Value();
+      sub -= valueSub;
+    }
   }
 
   void Initialize(Local<Object> exports) {
     NODE_SET_METHOD(exports, "sum", Sum);
+    NODE_SET_METHOD(exports, "sub", Sub);
   }
 
   NODE_MODULE(NODE_GYP_MODULE_NAME, Initialize);
