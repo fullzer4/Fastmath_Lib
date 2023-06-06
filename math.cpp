@@ -36,15 +36,30 @@ namespace math {
 
     double sub = 0.0;
 
-    for (int i = args.Length(); i < 0; i--) {
+    for (int i = 0; i < args.Length(); i++) {
       if (!args[i]->IsNumber()) {
         isolate->ThrowException(Exception::TypeError(String::NewFromUtf8(isolate, "Os parametros devem ser numeros").ToLocalChecked()));
         return;
       }
 
-      double valueSub = args[i].As<Number>()->Value();
-      sub -= valueSub;
+      if ( i == args.Length() - 1){
+        return;
+      }
+
+      int vp = i + 1;
+      
+      if ( i == 0 ){
+        double v1 = args[i].As<Number>()->Value();
+        double v2 = args[vp].As<Number>()->Value();
+        sub = v1 - v2;
+      }
+
+
+      sub = sub - args[vp].As<Number>()->Value();
     }
+
+    auto result = Number::New(isolate, sub);
+    args.GetReturnValue().Set(result);
   }
 
   void Initialize(Local<Object> exports) {
