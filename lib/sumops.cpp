@@ -1,5 +1,6 @@
 #include <node/node.h>
 #include <node/v8-container.h>
+#include <node/v8-object.h>
 #include <node/v8.h>
 
 namespace sumops {
@@ -13,7 +14,7 @@ namespace sumops {
   using v8::String;
   using v8::Array;
 
-  void Sum(const FunctionCallbackInfo<Value>& args) {
+  void SumAll(const FunctionCallbackInfo<Value>& args) {
     Isolate* isolate = args.GetIsolate();
 
     if (args.Length() < 1 || !args[0]->IsArray()) {
