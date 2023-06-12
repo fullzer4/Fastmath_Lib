@@ -2,7 +2,7 @@
   "targets": [
     {
       "target_name" : "math",
-      "sources" : [ "math.cpp" ]
+      "sources" : [ "./lib/main.cpp" ]
     }
   ]
 }
