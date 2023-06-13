@@ -1,13 +1,5 @@
-const math =  require("./build/Release/math")
+import Fastmath from "./lib/index.js"
 
-class FMath {
-
-  constructor(){}
-
-  sumAll(...number) {
-    math.sumAll(number)
-  }
-
-let package = new FMath()
-
-package.sumAll(32, 321 ,312)
+export {
+  Fastmath as default
+}

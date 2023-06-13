@@ -26,7 +26,7 @@ namespace sumops {
     double sum = 0.0;
 
     for (uint32_t i = 0; i < numbersArray->Length(); i++) {
-      Local<Value> element = numbersArray->Get(i);
+      Local<Value> element = numbersArray->Get(isolate->GetCurrentContext(), i).ToLocalChecked();
       if (!element->IsNumber()) {
         isolate->ThrowException(Exception::TypeError(String::NewFromUtf8(isolate, "O array deve conter apenas números").ToLocalChecked()));
         return;
