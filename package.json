@@ -27,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/fullzer4/Fastmath_Lib/issues"
   },
-  "homepage": "https://github.com/fullzer4/Fastmath_Lib#readme"
+  "homepage": "https://github.com/fullzer4/Fastmath_Lib#readme",
+  "devDependencies": {
+    "node-gyp": "^9.4.0"
+  }
 }
