@@ -1,10 +1,15 @@
 {
   "name": "fastmath_lib",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "",
   "main": "main.js",
   "exports": {
-    
+    ".": {
+      "default": {
+        "require": "./build/Release/math.node",
+        "default": "./main.js"
+      }
+    }
   },
   "type": "module",
   "scripts": {
