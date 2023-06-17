@@ -14,7 +14,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "verify": "",
+    "verify": "node ./scripts/verify.js",
     "setup": "npm run verify && node-gyp configure",
     "build": "npm run setup && node-gyp build",
     "dev": "npm run build && node index.js"
