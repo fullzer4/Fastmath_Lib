@@ -2,21 +2,22 @@
   "name": "fastmath_lib",
   "version": "1.0.6",
   "description": "",
-  "main": "main.js",
+  "main": "index.js",
   "exports": {
     ".": {
       "default": {
         "require": "./build/Release/math.node",
-        "default": "./main.js"
+        "default": "./index.js"
       }
     }
   },
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "setup": "node-gyp configure",
+    "verify": "",
+    "setup": "npm run verify && node-gyp configure",
     "build": "npm run setup && node-gyp build",
-    "dev": "npm run build && node main.js"
+    "dev": "npm run build && node index.js"
   },
   "repository": {
     "type": "git",
