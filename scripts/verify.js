@@ -11,7 +11,7 @@ if (os.platform() === 'win32') {
     if [ -f /etc/os-release ]; then
       source /etc/os-release
       echo $ID
-    elif [ -f /etc/lsb-release ]; then
+    if [ -f /etc/lsb-release ]; then
       source /etc/lsb-release
       echo $DISTRIB_ID
     else
@@ -21,9 +21,9 @@ if (os.platform() === 'win32') {
   exec(checkDistroCommand, (error, stdout) => {
     const distro = stdout.trim();
 
-    console.log("distro")
+    console.log(distro)
 
-    if (distro === 'ubuntu') {
+    if (distro === 'ubuntu' || distro === 'Ubuntu') {
       console.log("verificando dependencias")
       exec(`${ubuntuInstall}`, (error, stdout) => {
         if (error) {
