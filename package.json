@@ -13,11 +13,10 @@
   },
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "verify": "node ./scripts/verify.js",
     "setup": "npm run verify && node-gyp configure",
-    "build": "npm run setup && node-gyp build",
-    "dev": "npm run build && node index.js"
+    "build": "npm run setup && node-gyp build"
   },
   "repository": {
     "type": "git",
@@ -30,6 +29,7 @@
   },
   "homepage": "https://github.com/fullzer4/Fastmath_Lib#readme",
   "devDependencies": {
+    "jest": "^29.5.0",
     "node-gyp": "^9.4.0"
   }
 }
