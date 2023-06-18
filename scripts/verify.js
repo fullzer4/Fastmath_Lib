@@ -1,6 +1,6 @@
 import { exec } from 'child_process';
 import os from 'os';
-import { archInstall } from './linux.js';
+import { archInstall, ubuntuInstall } from './linux.js';
 
 if (os.platform() === 'win32') {
 
@@ -20,8 +20,18 @@ if (os.platform() === 'win32') {
   `;
   exec(checkDistroCommand, (error, stdout) => {
     const distro = stdout.trim();
-    if (distro === 'Ubuntu') {
-    
+
+    console.log("distro")
+
+    if (distro === 'ubuntu') {
+      console.log("verificando dependencias")
+      exec(`${ubuntuInstall}`, (error, stdout) => {
+        if (error) {
+          console.log(`Erro ao instalar: ${error}`)
+          return
+        }
+        console.log("instalado com sucesso")
+      })
     }else if (distro === 'arch') {
       console.log("verificando dependencias")
       exec(`${archInstall}`, (error, stdout) => {
