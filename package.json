@@ -29,6 +29,9 @@
   },
   "homepage": "https://github.com/fullzer4/Fastmath_Lib#readme",
   "devDependencies": {
+    "@babel/core": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "babel-jest": "^29.5.0",
     "jest": "^29.5.0",
     "node-gyp": "^9.4.0"
   }

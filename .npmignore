@@ -1,3 +1,5 @@
-website
 build
 node_modules
+__tests__
+docs
+.git
