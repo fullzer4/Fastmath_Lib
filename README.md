@@ -1,6 +1,3 @@
-# Fastmath_Lib
-🧮 A fast node library made in c++ for math
-
-```bash
-  npm install fastmath_lib
-```
+<div align="center">
+  <img src="./imgs/Fastmath.png" width="50%">
+</div>
