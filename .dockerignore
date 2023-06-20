@@ -1,0 +1,8 @@
+.git
+.github
+__tests__
+docs
+imgs
+.gitignore
+.npmignore
+jest.config.js
