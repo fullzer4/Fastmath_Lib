@@ -3,3 +3,5 @@ node_modules
 __tests__
 docs
 .git
+.github
+docker
