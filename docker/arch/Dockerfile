@@ -7,6 +7,6 @@ COPY ./package.json .
 
 RUN npm install
 
-RUN ls
+RUN ls node_modules
 
 CMD [ "node", "index.js" ]
