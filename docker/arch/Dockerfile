@@ -3,10 +3,10 @@ FROM archlinux
 RUN pacman -Sy --noconfirm && \
     pacman -S --noconfirm nodejs npm
 
-COPY ./package.json .
+WORKDIR /test
 
-RUN npm install
+COPY ./package.json ./test
 
-RUN ls node_modules
+RUN npm install fastmath_lib
 
 CMD [ "node", "index.js" ]
