@@ -24,6 +24,6 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: .
-        file: imgs/arch/Dockerfile
+        file: ./docker/arch/Dockerfile
         push: false
 
