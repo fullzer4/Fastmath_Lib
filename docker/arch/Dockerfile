@@ -7,4 +7,6 @@ WORKDIR /test
 
 COPY ./package.json .
 
-CMD [ "npm", "install", "fastmath_lib" ]
+RUN npm install fastmath_lib
+
+CMD [ "node", "index.js" ]
