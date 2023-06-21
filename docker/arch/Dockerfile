@@ -5,8 +5,6 @@ RUN pacman -Sy --noconfirm && \
 
 WORKDIR /test
 
-COPY ./package.json ./test
+COPY ./package.json .
 
-RUN npm install fastmath_lib
-
-CMD [ "node", "index.js" ]
+CMD [ "npm", "install", "fastmath_lib" ]
